@@ -3,6 +3,6 @@ steps:
     args: ["install", "github.com/curu/gcp-cd-codelab"]
     env: ["PROJECT_ROOT=github.com/curu/gcp-cd-codelab"]
   - name: "gcr.io/cloud-builders/docker"
-    args: ["build", "-t", "gcr.io/curu-devops/gcp-cd-codelab:$REVISION_ID", "-f", "Dockerfile", "."]
+    args: ["build", "-t", "gcr.io/kinetic-center-203509/gcp-cd-codelab:$REVISION_ID", "-f", "Dockerfile", "."]
 images:
-  - "gcr.io/curu-devops/gcp-cd-codelab:$REVISION_ID"
+  - "gcr.io/kinetic-center-203509/gcp-cd-codelab:$REVISION_ID"
