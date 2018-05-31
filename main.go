@@ -1,15 +1,23 @@
 package main
 
 import (
-	"io"
-	"net/http"
+    "io"
+    "log"
+    "net/http"
 )
 
 func hello(w http.ResponseWriter, r *http.Request) {
-	io.WriteString(w, "Hello, world!")
+    io.WriteString(w, "Hello, world!")
+}
+
+func busyloop(){
+    for {
+            log.Printf("hello")
+    }
 }
 
 func main(){
-	http.HandleFunc("/", hello)
-	http.ListenAndServe(":80", nil)
+    http.HandleFunc("/", hello)
+    go busyloop()
+    log.Fatal(http.ListenAndServe(":80", nil))
 }
